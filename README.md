@@ -51,7 +51,7 @@ The application validates all user input to ensure data integrity and a smooth u
 
 
 ---
-### File Processing
+### 3. File Processing
 The application reads and writes data using files:
 ## Implementation
 
