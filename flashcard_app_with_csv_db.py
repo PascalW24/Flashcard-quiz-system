@@ -2,9 +2,6 @@ import csv
 import random
 
 
-
-
-
 def load_flashcards():
     flashcards = []
     try:
