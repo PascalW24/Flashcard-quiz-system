@@ -1,5 +1,0 @@
-train  Zug
-candle  Kerze
-heart  Herz
-stone  Stein
-airplane  Flugzeug
