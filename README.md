@@ -1,26 +1,32 @@
 # Flashcard-quiz-system
 This project is intended to:
 
--
--
--
+- Develop an interactive console application that helps users learn and test English–German vocabulary 
+- Apply basic **Python** programming concepts learned in the Programming Foundations module
+- Demonstrate the use of **console interaction, data validation, and file processing**
+- Produce clean, well-structured, and documented code
 
 ---
 **Problem**
-Example: 
+
+Example:  Around 15.4 million people learn German as a foreign language worldwide. Many people struggle with memorizing vocabulary, which leads to slower learning progress, mental frustration and poor progress overview.  
+
 
 ---
 **Scenario**
-Example:
+
+Example: The user opens the program. The program loads word pairs from a file, presents them in random
+order, and asks the user to translate each word. The program count’s the amount of tries used and displays it when you entered the right word. If the user doesn’t know an
+answer, he has the option to show the answer and skip it.
 
 --- 
 
 **User stories:**
 
-1.
-2.
-3.
-4.
+1. As a user, I want to train my english - german vocabulary in the console. 
+2. As a user, I want to track
+3. As a user, I want to 
+4. As a user, I want 
 
 **Use cases:**
 
