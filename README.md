@@ -71,12 +71,15 @@ The program reads and writes data using files:
 - Libraries: random and csv
 
  ### Repository Structure
+ ```text
 Flashcard-quiz-system/
 
 ├── flashcard_app_with_csv_db.py    # main program logic (console application)
 ├── flashcard_words.csv             # Table with all the words in english and german
 ├── user_progress.txt               # words that the user progressed
 └── README.md                       # project description and milestones
+```
+
 
  ### How to Run
 
