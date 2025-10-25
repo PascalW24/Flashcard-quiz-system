@@ -19,9 +19,12 @@ def save_answer(user_answer):
 
 
 def main():
+    # Load cards
     flashcards = load_flashcards()
-    # Choose the language
-    language= ""
+    if not flashcards: #Checks if file was loaded
+        print("Exiting")
+        return
+    #Choose the language
     while language not in ("english", "german"):
         language = input("Choose the quiz language: German or English:\n ").strip().lower()
     correct_answer_count = 0
