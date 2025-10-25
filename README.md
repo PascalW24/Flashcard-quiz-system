@@ -76,7 +76,7 @@ The application reads and writes data using files:
  | Name       | Contribution                                 |
 |------------|----------------------------------------------|
 | Evgenia Boesiger | ...|
-| Noor Al Katheeb | ...              |
+| Noor Vinnai | ...              |
 | Pascal Walther | ...  |
 
 ##  Contributing
