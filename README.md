@@ -29,7 +29,7 @@ answer, he has the option to show the answer and skip it.
 
 **Use cases:**
 
-- Provide or use vacabulary list with word pairs (flashcard_words.csv)
+- Provide or use a vacabulary list with word pairs (flashcard_words.csv)
 - Practise vocabulary (flashcard_app_with_csv_db.py)
 - Skip unknown words
 - Track progress (user_progress.txt)
@@ -99,13 +99,26 @@ This ensures that the input contains only valid characters and prevents invalid 
 ---
 ### 3. File Processing
 The program reads and writes data using files:
-- It reads the words from a csv file
-- It writes the words that the user guessed right in a additional txt file
+- **Input file:** `flashcard_words.csv` - Contains the table of words and its translations per line in the format `English,German,type`.
+    - Example:
+		```
+        house,Haus,noun
+        difficult,schwierig,adjective
+        zero,null,numeral
+        ```
+    - The program reads this file at the beginning to display words in a random order.
+
+- **Output file:** `user_progress.txt` It writes the words that the user entered correctly in a additional txt file. It contains 
+    - Example:
+		```
+        ```
+    - The output file serves as a record for
+
 ## Implementation
 
 ### Technology
 - Python 3.x
-- Environment: GitHub Codespaces and PyCharm
+- Environment: GitHub Codespaces, PyCharm and Visual Studio Code
 - Libraries: random and csv
 
  ### Repository Structure
