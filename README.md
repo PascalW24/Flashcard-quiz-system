@@ -25,14 +25,15 @@ answer, he has the option to show the answer and skip it.
 
 1. As a user, I want to practise my english - german vocabulary in the console. 
 2. As a user, I want to track my learning progress.
-3. As a user, I want to see the correct answer, in case i can not answer it myself.
+3. As a user, I want to see the correct answer, in case I can not answer it myself.
 
 **Use cases:**
 
--
--
--
--
+- Provide or use vacabulary list with word pairs (flashcard_words.csv)
+- Practise vocabulary (flashcard_app_with_csv_db.py)
+- Skip unknown words
+- Track progress (user_progress.txt)
+
 
 ---
 
@@ -53,10 +54,47 @@ The application interacts with the user via the console. Users can:
 ---
 
 ### 2. Data Validation
-The program validates the following points:
+The application validates all user input to ensure data integrity and a smooth user experience. The program validates the following points:
 - If a valid language was chosen at the beginning
-- If he was able to load the words from the csv file
-- If a digit or letters were inserted by the user
+```python
+language = ""
+while language not in ("english", "german"):
+    language = input("Choose the quiz language: German or English:\n ").strip().lower()
+```
+This ensures only valid language is chosen. 
+
+- If the words from the csv file were loaded. The program validates the vocabulary file and checks its readability.
+```python 
+def load_flashcards():
+    flashcards = []
+    try:
+        with open("flashcard_words.csv", "r") as f:
+            reader = csv.DictReader(f)
+            flashcards = list(reader)
+    except FileNotFoundError:
+        print(f"⚠️  File 'flashcard_words.csv' not found.")
+        return False
+    return flashcards
+```
+```python
+def main():
+    #load cards
+    flashcards = load_flashcards()
+    if not flashcards: #Checks if file was loaded
+        print('Exiting')
+        return
+```
+This ensures the program only operates when valid data file was loaded. 
+
+- If digits or letters were inserted by the user. The program validates user responses. 
+```python 
+if user_answer.isdigit():
+            print('Invalid Input, only words are accepted')
+
+```
+
+This ensures that the input contains only valid characters and prevents invalid inputs from being counted or stored in the results file (user_progress.txt). 
+ 
 
 ---
 ### 3. File Processing
@@ -74,10 +112,10 @@ The program reads and writes data using files:
  ```text
 Flashcard-quiz-system/
 
-├── flashcard_app_with_csv_db.py    # main program logic (console application)
+├── flashcard_app_with_csv_db.py    # Main program logic (console application)
 ├── flashcard_words.csv             # Table with all the words in english and german
-├── user_progress.txt               # words that the user progressed
-└── README.md                       # project description and milestones
+├── user_progress.txt               # Words that the user progressed
+└── README.md                       # Project description and milestones
 ```
 
 
