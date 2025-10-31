@@ -108,9 +108,14 @@ The program reads and writes data using files:
         ```
     - The program reads this file at the beginning to display words in a random order.
 
-- **Output file:** `user_progress.txt` It writes the words that the user entered correct or incorrect in a additional txt file. It contains 
+- **Output file:** `user_progress.txt` It writes the words that the user entered correct in a additional txt file. It contains a summary of the progressed words. 
     - Example:
 		```
+        safe  
+        rule  
+        besuchen  
+        Flughafen  
+        tun    
         ```
     - The output file serves as a record for
 
