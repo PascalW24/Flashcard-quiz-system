@@ -117,7 +117,7 @@ The program reads and writes data using files:
         Flughafen  
         tun    
         ```
-    - The output file serves as a record for
+    - The output file serves as a record for the user to keep track of the progress.
 
 ## Implementation
 
@@ -138,8 +138,19 @@ Flashcard-quiz-system/
 
 
  ### How to Run
+ 1. Open the repository in **GitHub Codespaces**
+2. Open the **Terminal**
+3. Run:
+	```bash
+
+    python3 flashcard_app_with_csv_db.py
+
+    ```
 
  ### Libraries Used
+
+ - random
+ - csv
 
  ## Team and Contributions
  | Name       | Contribution                                 |
