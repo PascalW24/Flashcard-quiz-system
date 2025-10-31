@@ -3,7 +3,7 @@ import random
 
 def load_flashcards():
     try:
-        with open("flashcard_words.csv", "r") as f:
+        with open("flashcard_words.csv",encoding="utf-8", mode= "r") as f:
             reader = csv.DictReader(f)
             flashcards = list(reader)
     except FileNotFoundError:

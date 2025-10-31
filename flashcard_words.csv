@@ -6,7 +6,7 @@ table,Tisch,noun
 chair,Stuhl,noun
 door,Tür,noun
 window,Fenster,noun
-street,Straße,noun
+street,Strasse,noun
 school,Schule,noun
 teacher,Lehrer,noun
 student,Schüler,noun
@@ -75,8 +75,8 @@ snow,Schnee,noun
 wind,Wind,noun
 warm,warm,adjective
 cold,kalt,adjective
-hot,heiß,adjective
-big,groß,adjective
+hot,heiss,adjective
+big,gross,adjective
 small,klein,adjective
 good,gut,adjective
 bad,schlecht,adjective
@@ -107,7 +107,7 @@ seventeen,siebzehn,numeral
 eighteen,achtzehn,numeral
 nineteen,neunzehn,numeral
 twenty,zwanzig,numeral
-thirty,dreißig,numeral
+thirty,dreissig,numeral
 forty,vierzig,numeral
 fifty,fünfzig,numeral
 sixty,sechzig,numeral
@@ -140,7 +140,7 @@ blue,blau,adjective
 green,grün,adjective
 yellow,gelb,adjective
 black,schwarz,adjective
-white,weiß,adjective
+white,weiss,adjective
 gray,grau,adjective
 brown,braun,adjective
 orange,orange,adjective
@@ -180,7 +180,7 @@ begin,beginnen,verb
 start,starten,verb
 finish,beenden,verb
 open,öffnen,verb
-close,schließen,verb
+close,schliessen,verb
 read,lesen,verb
 write,schreiben,verb
 speak,sprechen,verb
@@ -276,7 +276,7 @@ stomach,Magen,noun
 belly,Bauch,noun
 leg,Bein,noun
 knee,Knie,noun
-foot,Fuß,noun
+foot,Fuss,noun
 toe,Zeh,noun
 skin,Haut,noun
 heart,Herz,noun
@@ -288,7 +288,7 @@ kitchen,Küche,noun
 bathroom,Badezimmer,noun
 bedroom,Schlafzimmer,noun
 ceiling,Decke,noun
-floor,Fußboden,noun
+floor,Fussboden,noun
 wall,Wand,noun
 bed,Bett,noun
 pillow,Kissen,noun
@@ -681,7 +681,7 @@ free,frei,adjective
 fresh,frisch,adjective
 friendly,freundlich,adjective
 full,voll,adjective
-great,großartig,adjective
+great,grossartig,adjective
 happy,glücklich,adjective
 hard,hart,adjective
 healthy,gesund,adjective
@@ -690,7 +690,7 @@ high,hoch,adjective
 important,wichtig,adjective
 interesting,interessant,adjective
 kind,freundlich,adjective
-large,groß,adjective
+large,gross,adjective
 late,spät,adjective
 lazy,faul,adjective
 light,leicht,adjective
@@ -712,10 +712,11 @@ sick,krank,adjective
 slow,langsam,adjective
 soft,weich,adjective
 strong,stark,adjective
-tall,groß,adjective
+tall,gross,adjective
 tired,müde,adjective
 weak,schwach,adjective
 wet,nass,adjective
 
 young,jung,adjective
+
 
