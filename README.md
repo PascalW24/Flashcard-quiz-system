@@ -111,11 +111,15 @@ The program reads and writes data using files:
 - **Output file:** `user_progress.txt` It writes the words that the user entered correct in a additional txt file. It contains a summary of the progressed words. 
     - Example:
 		```
-        safe  
-        rule  
-        besuchen  
-        Flughafen  
-        tun    
+       Practice session started at Sat 01 Nov 2025, 03:20PM (English -> German)
+		- wash -> waschen
+		- month -> Monat
+		- newspaper -> Zeitung
+		- hate -> hassen
+		Practice session started at Sat 01 Nov 2025, 03:24PM (German -> English)
+		- Stern -> star
+		- Land -> country
+		- berühmt -> famous   
         ```
     - The output file serves as a record for the user to keep track of the progress.
 
