@@ -88,7 +88,7 @@ This ensures the program only operates when valid data file was loaded.
 
 - If digits or letters were inserted by the user. The program validates user responses. 
 ```python 
-if user_answer.isdigit():
+if not user_answer.isalpha() :
             print('Invalid Input, only words are accepted')
 
 ```
