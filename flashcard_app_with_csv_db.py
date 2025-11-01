@@ -1,9 +1,11 @@
 import csv
 import random
+from datetime import datetime
+
 
 def load_flashcards():
     try:
-        with open("flashcard_words.csv",encoding="utf-8", mode= "r") as f:
+        with open("flashcard_words.csv",encoding="utf-8", mode="r") as f:
             reader = csv.DictReader(f)
             flashcards = list(reader)
     except FileNotFoundError:
@@ -11,9 +13,9 @@ def load_flashcards():
         return False #should we return here or exit(1)
     return flashcards
 
-def save_word(question):
+def save_word(question,user_answer):
     with open("user_progress.txt", "a") as writer:
-        writer.write(f"{question}  \n")
+        writer.write(f'- {question} -> {user_answer}\n')
 
 def clear_file():
     with open("user_progress.txt", "w") as writer:
@@ -31,8 +33,10 @@ def main():
         language = input("Choose the quiz language: German or English:\n ").strip().lower()
     correct_answer_count = 0
     overall_tries = 0
+    opposite = "english" if language == "german" else "german"
+    with open("user_progress.txt", "a") as writer:
+        writer.write(f'Practice session started at {datetime.now().strftime('%a %d %b %Y, %I:%M%p')} ({language.capitalize()} -> {opposite.capitalize()})\n')
     while True:
-        opposite = "english" if language == "german" else "german"
         entry = random.choice(flashcards)
         flashcards.remove(entry)
         print(f'\n"{entry[language]}"')
@@ -57,7 +61,7 @@ def main():
         elif user_answer == entry[opposite]:
             print("correct")
             correct_answer_count += 1
-            save_word(entry[language])
+            save_word(entry[language],user_answer)
         else:
             number_of_tries_per_word = 0
             while user_answer != entry[opposite]:
@@ -82,7 +86,7 @@ def main():
                     exit(0)
                 elif user_answer == entry[opposite]:
                     print("It's correct, you tried ", number_of_tries_per_word, " times to answer correctly")
-                    save_word(user_answer)
+                    save_word(entry[language],user_answer)
                     correct_answer_count += 1
 
 if __name__== '__main__':
