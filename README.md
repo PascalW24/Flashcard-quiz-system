@@ -149,21 +149,17 @@ Flashcard-quiz-system/
 
  ### Libraries Used
 
- - random
- - csv
+ - ´random´: Module is used to select random words from the csv file, and shuffling order flashcards presented to the user. 
+ - ´csv´: Allows to read data, word pairs (english-german) in ´flashcard_words.csv´ file.
+
+In this program were used only Python standard libraries, with no external installations required. These libraries were chosen because of their simplicity, effectiveness and reliability, while managing files and data processing in a console application. 
 
  ## Team and Contributions
  | Name       | Contribution                                 |
 |------------|----------------------------------------------|
-| Evgenia Boesiger | ...|
+| Evgenia Boesiger | ... |
 | Noor Vinnai | ...              |
 | Pascal Walther | ...  |
-
-##  Contributing
-
-- Use this repository as a starting point by importing it into your own GitHub account.  
-- Work only within your own copy — do not push to the original template.  
-- Commit regularly to track your progress.
 
 ## 📝 License
 
