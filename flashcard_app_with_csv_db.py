@@ -84,6 +84,7 @@ def main():
                 elif user_answer.lower() == "x":
                     end_quiz(entry, opposite, correct_answer_count, overall_tries)
                 elif user_answer == entry[opposite]:
+                    number_of_tries_per_word+= 1
                     print("It's correct, you tried ", number_of_tries_per_word, " times to answer correctly")
                     save_word(entry[language],user_answer)
                     correct_answer_count += 1
