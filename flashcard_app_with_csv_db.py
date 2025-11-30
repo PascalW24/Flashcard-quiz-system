@@ -70,7 +70,6 @@ def main():
             correct_answer_count += 1
             save_word(entry[language],user_answer)
         else:
-            number_of_tries_per_word = 0
             while user_answer != entry[opposite]:
                 number_of_tries_per_word += 1
                 overall_tries += 1
