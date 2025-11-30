@@ -21,6 +21,21 @@ def clear_file():
     with open("user_progress.txt", "w") as writer:
         writer.write("")
 
+def end_quiz(entry, opposite, correct_answer_count, overall_tries):
+    overall_tries -= 1
+    print(f'The correct answer was "{entry[opposite]}".\nYour Score is "{correct_answer_count}", and you tried "{overall_tries}" times')
+    user_choice = '-'
+    while user_choice not in ("", "clear"):
+        user_choice = input('Press Enter to keep your progress or "clear" to delete all saved progress\n').strip().lower()
+        if user_choice == "clear":
+            clear_file()
+    exit(0)
+
+def skip_word(entry, opposite, overall_tries, number_of_tries_per_word):
+    overall_tries -= 1
+    print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
+    return overall_tries
+
 def main():
     #load cards
     flashcards = load_flashcards()
@@ -46,18 +61,10 @@ def main():
 
         if not user_answer.isalpha() :
             print('Invalid Input, only words are accepted')
-        if user_answer == "n":
-            overall_tries -= 1
-            print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
-        elif user_answer == "x":
-            overall_tries -= 1
-            print(f'The correct answer was "{entry[opposite]}".\nYour Score is "{correct_answer_count}", and you tried "{overall_tries}" times')
-            user_choice ='-'
-            while user_choice not in ("", "clear"):
-                user_choice = input('Please press "Enter" to keep your progress or "clear" to delete all saved progress\n').strip().lower()
-                if user_choice == "clear":
-                    clear_file()
-            exit(0)
+        if user_answer.lower() == "n":
+            overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word)
+        elif user_answer.lower() == "x":
+            end_quiz(entry, opposite, correct_answer_count, overall_tries)
         elif user_answer == entry[opposite]:
             print("correct")
             correct_answer_count += 1
@@ -71,19 +78,11 @@ def main():
                 user_answer = input('It’s incorrect.\nPlease try again, or type “n” for the next question, or “x” to end the quiz.\n')
                 if not user_answer.isalpha():
                     print('Invalid Input, only words are accepted')
-                if user_answer == "n":
-                    overall_tries -= 1
-                    print(f'The correct answer was "{entry[opposite]}".You tried "{number_of_tries_per_word}" times')
+                if user_answer.lower() == "n":
+                    overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word)
                     break
-                elif user_answer == "x":
-                    overall_tries -= 1
-                    print(f'The correct answer was "{entry[opposite]}".\nYour Score "{correct_answer_count}" and you tried "{overall_tries}" times')
-                    user_choice='-'
-                    while user_choice not in ("","clear"):
-                        user_choice= input('Please press "Enter" to keep your progress or "clear" to delete all saved progress\n').strip().lower()
-                        if user_choice == "clear":
-                            clear_file()
-                    exit(0)
+                elif user_answer.lower() == "x":
+                    end_quiz(entry, opposite, correct_answer_count, overall_tries)
                 elif user_answer == entry[opposite]:
                     print("It's correct, you tried ", number_of_tries_per_word, " times to answer correctly")
                     save_word(entry[language],user_answer)
