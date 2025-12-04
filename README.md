@@ -15,7 +15,7 @@ This project is intended to:
 ---
 **Scenario**
 
-The program loads vocabulary flashcards from a CSV file and quizzes the user by showing a word in one language and asking for its translation. Words are presented in random order, and the program tracks how many attempts the user makes for each answer. If the user enters the correct translation, the program records the result and shows how many tries were needed. If the user doesn’t know the answer, they can skip the word to reveal the correct translation before moving on. At any time, the user can end the session and see a summary of their overall performance.a
+The program loads vocabulary flashcards from a CSV file and quizzes the user by showing a word in one language and asking for its translation. Words are presented in random order, and the program tracks how many attempts the user makes for each answer. If the user enters the correct translation, the program records the result and shows how many tries were needed. If the user doesn’t know the answer, they can skip the word to reveal the correct translation before moving on. At any time, the user can end the session and see a summary of their overall performance.
 
 --- 
 
