@@ -15,9 +15,7 @@ This project is intended to:
 ---
 **Scenario**
 
- The user opens the program. The program loads word pairs from a file, presents them in random
-order, and asks the user to translate each word. The program count’s the amount of tries used and displays it when you entered the right word. If the user doesn’t know an
-answer, he has the option to show the answer and skip it.
+The program loads vocabulary flashcards from a CSV file and quizzes the user by showing a word in one language and asking for its translation. Words are presented in random order, and the program tracks how many attempts the user makes for each answer. If the user enters the correct translation, the program records the result and shows how many tries were needed. If the user doesn’t know the answer, they can skip the word to reveal the correct translation before moving on. At any time, the user can end the session and see a summary of their overall performance.a
 
 --- 
 
@@ -56,44 +54,44 @@ The application interacts with the user via the console. Users can:
 ### 2. Data Validation
 The application validates all user input to ensure data integrity and a smooth user experience. The program validates the following points:
 - If a valid language was chosen at the beginning
-```python
-language = ""
-while language not in ("english", "german"):
-    language = input("Choose the quiz language: German or English:\n ").strip().lower()
-```
-This ensures only valid language is chosen. 
+	```python
+	language = ""
+	while language not in ("english", "german"):
+	    language = input("Choose the quiz language: German or English:\n ").strip().lower()
+	```
+	This ensures only valid language is chosen. 
 
 - If the words from the csv file were loaded. The program validates the vocabulary file and checks its readability.
-```python 
-def load_flashcards():
-    flashcards = []
-    try:
-        with open("flashcard_words.csv", "r") as f:
-            reader = csv.DictReader(f)
-            flashcards = list(reader)
-    except FileNotFoundError:
-        print(f"⚠️  File 'flashcard_words.csv' not found.")
-        return False
-    return flashcards
-```
-```python
-def main():
-    #load cards
-    flashcards = load_flashcards()
-    if not flashcards: #Checks if file was loaded
-        print('Exiting')
-        return
-```
-This ensures the program only operates when valid data file was loaded. 
+	```python 
+	def load_flashcards():
+	    flashcards = []
+	    try:
+	        with open("flashcard_words.csv", "r") as f:
+	            reader = csv.DictReader(f)
+	            flashcards = list(reader)
+	    except FileNotFoundError:
+	        print(f"⚠️  File 'flashcard_words.csv' not found.")
+	        return False
+	    return flashcards
+	```
+	```python
+	def main():
+	    #load cards
+	    flashcards = load_flashcards()
+	    if not flashcards: #Checks if file was loaded
+	        print('Exiting')
+	        return
+	```
+	This ensures the program only operates when valid data file was loaded. 
 
 - If digits or letters were inserted by the user. The program validates user responses. 
-```python 
-if not user_answer.isalpha() :
-            print('Invalid Input, only words are accepted')
-
-```
-
-This ensures that the input contains only valid characters and prevents invalid inputs from being counted or stored in the results file (user_progress.txt). 
+	```python 
+	elif not user_answer.isalpha():
+	    print('Invalid Input, only words are accepted')
+	    user_answer = input('Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
+	```
+	
+	This ensures that the input contains only valid characters and prevents invalid inputs from being counted or stored in the results file (user_progress.txt). 
  
 
 ---
@@ -111,15 +109,15 @@ The program reads and writes data using files:
 - **Output file:** `user_progress.txt` It writes the words that the user entered correct in a additional txt file. It contains a summary of the progressed words. 
     - Example:
 		```
-  		Practice session started at Sat 01 Nov 2025, 03:20PM (English -> German)
-		- wash -> waschen
-		- month -> Monat
-		- newspaper -> Zeitung
-		- hate -> hassen
-		Practice session started at Sat 01 Nov 2025, 03:24PM (German -> English)
-		- Stern -> star
-		- Land -> country
-		- berühmt -> famous   
+  		Practice session started at Thu 04 Dec 2025, 07:17PM (German -> English)
+		- Information -> information
+		- Bluse -> blouse
+		- eins -> one
+		- hassen -> hate
+		- Kamera -> camera
+		- Regel -> rule
+		- Messer -> knife
+		Your performance: 70% correct answers with an accuracy rate of 54%. 
         ```
     - The output file serves as a record for the user to keep track of the progress.
 
@@ -153,8 +151,9 @@ Flashcard-quiz-system/
 
  ### Libraries Used
 
- - ´random´: Module is used to select random words from the csv file, and shuffling order flashcards presented to the user. 
- - ´csv´: Allows to read data, word pairs (english-german) in ´flashcard_words.csv´ file.
+ - 'random': Module is used to select random words from the csv file, and shuffling order flashcards presented to the user. 
+ - 'csv': Allows to read data, word pairs (english-german) in ´flashcard_words.csv´ file.
+ - 'from datetime import datetime': Allows the program to display the current date and time—perfect for tracking when each practice session begins.
 
 In this program were used only Python standard libraries, with no external installations required. These libraries were chosen because of their simplicity, effectiveness and reliability, while managing files and data processing in a console application. 
 
