@@ -86,9 +86,9 @@ def main():
 
     while flashcards:
         entry = random.choice(flashcards)
-        flashcards.remove(entry)# To prevent repeating words
+        flashcards.remove(entry) # To prevent repeating words
         number_of_entry += 1
-        print(f'\n{entry[language]}, "{entry[the_typ]}"')# Display the word and its type
+        print(f'\n{entry[language]}, "{entry[the_typ]}"') # Display the word and its type
         number_of_tries_per_word = 0
         user_answer = input(
             f'Translate: "{entry[language]}" or type "n" for the next question, or type "x" to end the quiz\n')
