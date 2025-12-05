@@ -158,8 +158,9 @@ Flashcard-quiz-system/
 In this program were used only Python standard libraries, with no external installations required. These libraries were chosen because of their simplicity, effectiveness and reliability, while managing files and data processing in a console application. 
 
  ## Team and Contributions
- All team members collaborated on planning, testing, debugging, and final presentation to ensure a consistent result.
- Group 2: Evgenia Boesiger, Noor Vinnai, Pascal Walther 
+ All team members collaborated on planning, testing, debugging and final presentation to ensure a consistent result.
+ 
+ Group 2: Evgenia Boesiger, Noor Vinnai, Pascal Walther.
 
 ## 📝 License
 
