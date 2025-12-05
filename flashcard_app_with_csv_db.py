@@ -58,7 +58,7 @@ def finish_quiz(correct_answer_count, overall_tries, number_of_entry): #when the
 def skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards):
     overall_tries -= 1
     print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
-    flashcards.append(entry) #put the word again in the csv_file
+    flashcards.append(entry) #put the word back into the in-memory list
     return overall_tries
 
 
