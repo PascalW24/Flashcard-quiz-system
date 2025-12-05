@@ -19,48 +19,46 @@ def save_word(question, user_answer):
         writer.write(f'- {question} -> {user_answer}\n')
 
 
-def clear_file():
-    with open("user_progress.txt", encoding="utf-8", mode="w") as writer:
-        writer.write("")
+def clear_file_or_keeping():
+    user_choice = '-'
+    while user_choice not in ("", "clear"):
+        user_choice = input(
+            'Thanks for exploring these flashcards — keep discovering 📚📚.\nPress Enter to keep your progress or type "clear" to delete all saved progress\n').strip().lower()
+        if user_choice == "clear":
+            with open("user_progress.txt", encoding="utf-8", mode="w") as writer:
+                writer.write("")
+        exit(0)
 
 
 def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry):
-    overall_tries -= 1
-    number_of_entry-=1
+    if overall_tries>1 and number_of_entry>1 :
+        overall_tries -= 1
+        number_of_entry-=1
     percentage = round(correct_answer_count / number_of_entry * 100)
     accuracy = round(correct_answer_count / overall_tries * 100)
     print(
         f'The correct answer was "{entry[opposite]}".\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
     with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
-        writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n')
-    user_choice = '-'
-    while user_choice not in ("", "clear"):
-        user_choice = input(
-            'Press Enter to keep your progress or type "clear" to delete all saved progress\n').strip().lower()
-        if user_choice == "clear":
-            clear_file()
-    exit(0)
+        writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
+
+    clear_file_or_keeping()
 
 
-def finish_quiz(correct_answer_count, overall_tries, number_of_entry):
+def finish_quiz(correct_answer_count, overall_tries, number_of_entry): #when there is no flashcard lift
     percentage = round(correct_answer_count / number_of_entry * 100)
     accuracy = round(correct_answer_count / overall_tries * 100)
     print(
         f'No more flashcards left. Great job!\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
     with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
-        writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n')
-    user_choice = '-'
-    while user_choice not in ("", "clear"):
-        user_choice = input(
-            'Press Enter to keep your progress or "clear" to delete all saved progress\n').strip().lower()
-        if user_choice == "clear":
-            clear_file()
-    exit(0)
+        writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
+
+    clear_file_or_keeping()
 
 
-def skip_word(entry, opposite, overall_tries, number_of_tries_per_word):
+def skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards):
     overall_tries -= 1
     print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
+    flashcards.append(entry) #put the word again in the csv_file
     return overall_tries
 
 
@@ -72,7 +70,7 @@ def main():
         return
     # Choose the language
     language = ""
-    type = "type"
+    the_typ = "type"
     while language not in ("english", "german"):
         language = input("Choose the quiz language: German or English:\n").strip().lower()
     correct_answer_count = 0
@@ -85,21 +83,22 @@ def main():
 
     while flashcards:
         entry = random.choice(flashcards)
-        flashcards.remove(entry)
+        flashcards.remove(entry)#to prevent repeating words
         number_of_entry += 1
-        print(f'\n{entry[language]}, "{entry[type]}"')
+        print(f'\n{entry[language]}, "{entry[the_typ]}"')#display the word and its type
         number_of_tries_per_word = 0
         user_answer = input(
             f'Translate: "{entry[language]}" or type "n" for the next question, or type "x" to end the quiz\n')
         overall_tries += 1
         if user_answer.lower() == "n":
-            overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word)
+            overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards)
         elif user_answer.lower() == "x":
             end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry)
         elif user_answer == entry[opposite]:
             print("Correct")
             correct_answer_count += 1
             save_word(entry[language], user_answer)
+
         else:
             while user_answer != entry[opposite]:
                 number_of_tries_per_word += 1
@@ -112,7 +111,7 @@ def main():
                     user_answer = input(
                         'Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
                 if user_answer.lower() == "n":
-                    overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word)
+                    overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards)
                     break
                 elif user_answer.lower() == "x":
                     end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry)
