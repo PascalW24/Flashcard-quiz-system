@@ -31,7 +31,7 @@ def clear_file_or_keeping():
 
 
 def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry):
-    if overall_tries>1 and number_of_entry>1 :
+    if overall_tries>1 and number_of_entry>1 : # Avoiding division by zero
         overall_tries -= 1
         number_of_entry-=1
     percentage = round(correct_answer_count / number_of_entry * 100)
@@ -44,7 +44,7 @@ def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_ent
     clear_file_or_keeping()
 
 
-def finish_quiz(correct_answer_count, overall_tries, number_of_entry): #when there is no flashcard lift
+def finish_quiz(correct_answer_count, overall_tries, number_of_entry): # when there is no flashcard lift
     percentage = round(correct_answer_count / number_of_entry * 100)
     accuracy = round(correct_answer_count / overall_tries * 100)
     print(
@@ -56,9 +56,9 @@ def finish_quiz(correct_answer_count, overall_tries, number_of_entry): #when the
 
 
 def skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards):
-    overall_tries -= 1
+    overall_tries -= 1 # undo the try we already counted for this word
     print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
-    flashcards.append(entry) #put the word back into the in-memory list
+    flashcards.append(entry) # put the word back into the pool of flashcards
     return overall_tries
 
 
