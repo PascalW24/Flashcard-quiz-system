@@ -44,7 +44,7 @@ The program loads vocabulary flashcards from a CSV file and quizzes the user by 
 ### 1. Interactive App (Console Input)
 The application interacts with the user via the console. Users can:
 
-- Choose the language 
+- Choose the language you want to be quizzed in 
 - Enter translation
 - Skip unknown words
 - Exit the program
@@ -140,7 +140,7 @@ Flashcard-quiz-system/
 
 
  ### How to Run
- 1. Open the repository in **GitHub Codespaces**
+1. Open the repository in **GitHub Codespaces**
 2. Open the **Terminal**
 3. Run:
 	```bash
@@ -158,11 +158,8 @@ Flashcard-quiz-system/
 In this program were used only Python standard libraries, with no external installations required. These libraries were chosen because of their simplicity, effectiveness and reliability, while managing files and data processing in a console application. 
 
  ## Team and Contributions
- | Name       | Contribution                                 |
-|------------|----------------------------------------------|
-| Evgenia Boesiger | ... |
-| Noor Vinnai | ...              |
-| Pascal Walther | ...  |
+ All team members collaborated on planning, testing, debugging, and final presentation to ensure a consistent result.
+ Group 2: Evgenia Boesiger, Noor Vinnai, Pascal Walther 
 
 ## 📝 License
 
