@@ -10,7 +10,7 @@ def load_flashcards():
             reader = csv.DictReader(f)
             flashcards = list(reader)
     except FileNotFoundError:
-        print(f"⚠️  File 'flashcard_words.csv' not found.")
+        print(f"File 'flashcard_words.csv' not found.")
         return False
     return flashcards
 
@@ -26,7 +26,7 @@ def clear_file_or_keeping():
     user_choice = '-'
     while user_choice not in ("", "clear"):
         user_choice = input(
-            'Thanks for exploring these flashcards — keep discovering 📚📚.\nPress Enter to keep your progress or type "clear" to delete all saved progress\n').strip().lower()
+            'Thanks for exploring these flashcards — keep discovering.\nPress Enter to keep your progress or type "clear" to delete all saved progress\n').strip().lower()
         if user_choice == "clear":
             with open("user_progress.txt", encoding="utf-8", mode="w") as writer:
                 writer.write("")
