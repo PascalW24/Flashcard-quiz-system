@@ -63,32 +63,32 @@ The application validates all user input to ensure data integrity and a smooth u
 
 - If the words from the csv file were loaded. The program validates the vocabulary file and checks its readability.
 	```python 
-	def load_flashcards():
-	    flashcards = []
-	    try:
-	        with open("flashcard_words.csv", "r") as f:
-	            reader = csv.DictReader(f)
-	            flashcards = list(reader)
-	    except FileNotFoundError:
-	        print(f"⚠️  File 'flashcard_words.csv' not found.")
-	        return False
-	    return flashcards
+def load_flashcards():
+    """This function loads the flashcards data from the csv file."""
+    try:
+        with open("flashcard_words.csv", encoding="utf-8", mode="r") as f:
+            reader = csv.DictReader(f)
+            flashcards = list(reader)
+    except FileNotFoundError:
+        print(f"⚠️  File 'flashcard_words.csv' not found.")
+        return False
+    return flashcards
 	```
 	```python
-	def main():
-	    #load cards
-	    flashcards = load_flashcards()
-	    if not flashcards: #Checks if file was loaded
-	        print('Exiting')
-	        return
+def main():
+    flashcards = load_flashcards() # Load cards
+    if not flashcards:  # Checks if file was loaded
+        print('Exiting')
+        return
 	```
 	This ensures the program only operates when valid data file was loaded. 
 
 - If digits or letters were inserted by the user. The program validates user responses. 
 	```python 
-	elif not user_answer.isalpha():
-	    print('Invalid Input, only words are accepted')
-	    user_answer = input('Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
+ elif not user_answer.isalpha(): # The user answer was wrong
+	print('Invalid Input, only words are accepted')
+    user_answer = input(
+    	'Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
 	```
 	
 	This ensures that the input contains only valid characters and prevents invalid inputs from being counted or stored in the results file (user_progress.txt). 
