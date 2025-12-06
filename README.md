@@ -64,15 +64,15 @@ The application validates all user input to ensure data integrity and a smooth u
 - If the words from the csv file were loaded. The program validates the vocabulary file and checks its readability.
 	```python 
 		def load_flashcards():
-    	"""This function loads the flashcards data from the csv file."""
-    	try:
-        	with open("flashcard_words.csv", encoding="utf-8", mode="r") as f:
-            	reader = csv.DictReader(f)
-            	flashcards = list(reader)
-    	except FileNotFoundError:
-        	print(f"⚠️  File 'flashcard_words.csv' not found.")
-        	return False
-    	return flashcards
+	    	"""This function loads the flashcards data from the csv file."""
+	    	try:
+	        	with open("flashcard_words.csv", encoding="utf-8", mode="r") as f:
+	            	reader = csv.DictReader(f)
+	            	flashcards = list(reader)
+	    	except FileNotFoundError:
+	        	print(f"⚠️  File 'flashcard_words.csv' not found.")
+	        	return False
+	    	return flashcards
 	```
 	```python
 	def main():
