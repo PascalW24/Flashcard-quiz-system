@@ -106,10 +106,10 @@ def main():
             while user_answer != entry[opposite]:
                 number_of_tries_per_word += 1
                 overall_tries += 1
-                if user_answer.isalpha(): # The user answer was invalid
+                if user_answer.isalpha(): # The user answer was wrong
                     user_answer = input(
                         'It’s incorrect.\nPlease try again, or type "n" for the next question, or "x" to end the quiz.\n')
-                elif not user_answer.isalpha(): # The user answer was wrong
+                elif not user_answer.isalpha(): # The user answer was invalid
                     print('Invalid Input, only words are accepted')
                     user_answer = input(
                         'Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
