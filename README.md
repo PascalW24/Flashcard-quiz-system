@@ -70,7 +70,7 @@ The application validates all user input to ensure data integrity and a smooth u
 	            	reader = csv.DictReader(f)
 	            	flashcards = list(reader)
 	    	except FileNotFoundError:
-	        	print(f"⚠️  File 'flashcard_words.csv' not found.")
+	        	print(f"File 'flashcard_words.csv' not found.")
 	        	return False
 	    	return flashcards
 	```
