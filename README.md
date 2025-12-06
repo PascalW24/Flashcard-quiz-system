@@ -15,19 +15,19 @@ This project is intended to:
 ---
 **Scenario**
 
-The program loads vocabulary flashcards from a CSV file and quizzes the user by showing a word in one language and asking for its translation. Words are presented in random order, and the program tracks how many attempts the user makes for each answer. If the user enters the correct translation, the program records the result and shows how many tries were needed. If the user doesn’t know the answer, they can skip the word to reveal the correct translation before moving on. The skipped word will appear later again. At any time, the user can end the session and see a summary of their overall performance.
+The program loads vocabulary flashcards from a CSV file and quizzes the user by showing a word in one language and asking for its translation. Words are presented in random order, and the program tracks how many attempts the user makes for each answer. If the user enters the correct translation, the program records the result and shows how many tries were needed. If the user doesn’t know the answer, they can skip the word to reveal the correct translation before moving on. The skipped word will appear again later. At any time, the user can end the session and see a summary of their overall performance.
 
 --- 
 
 **User stories:**
 
-1. As a user, I want to practise my english - german vocabulary in the console. 
+1. As a user, I want to practise my English-German vocabulary in the console. 
 2. As a user, I want to track my learning progress.
 3. As a user, I want to see the correct answer, in case I can not answer it myself.
 
 **Use cases:**
 
-- Provide or use a vacabulary list with word pairs (flashcard_words.csv)
+- Provide or use a vocabulary list with word pairs (flashcard_words.csv)
 - Practise vocabulary (flashcard_app_with_csv_db.py)
 - Skip unknown words and learn them later again
 - Track progress (user_progress.txt)
@@ -61,7 +61,7 @@ The application validates all user input to ensure data integrity and a smooth u
 	```
 	This ensures only valid language is chosen. 
 
-- If the words from the csv file were loaded. The program validates the vocabulary file and checks its readability.
+- If the words from the CSV file were loaded. The program validates the vocabulary file and checks its readability.
 	```python 
 		def load_flashcards():
 	    	"""This function loads the flashcards data from the csv file."""
@@ -81,11 +81,11 @@ The application validates all user input to ensure data integrity and a smooth u
         	print('Exiting')
         	return
 	```
-	This ensures the program only operates when valid data file was loaded. 
+	This ensures the program only operates when a valid data file was loaded. 
 
 - If digits or letters were inserted by the user. The program validates user responses. 
 	```python 
- 	elif not user_answer.isalpha(): # The user answer was invalid
+ 	elif not user_answer.isalpha(): # The user's answer was invalid
 		print('Invalid Input, only words are accepted')
     	user_answer = input(
     		'Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
@@ -165,4 +165,3 @@ In this program were used only Python standard libraries, with no external insta
 ## 📝 License
 
 This project is provided for **educational use only** as part of the Programming Foundations module.  
-[MIT License](LICENSE)
