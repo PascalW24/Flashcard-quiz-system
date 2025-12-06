@@ -9,7 +9,7 @@ This project is intended to:
 ---
 **Problem**
 
-  Around 15.4 million people learn German as a foreign language worldwide. Many people struggle with memorizing vocabulary, which leads to slower learning progress, mental frustration and poor progress overview.  
+  Around 15.4 million people learn German as a foreign language worldwide. Many people struggle with memorizing vocabulary, which leads to slower learning progress, mental frustration, and a poor progress overview.  
 
 
 ---
@@ -64,7 +64,7 @@ The application validates all user input to ensure data integrity and a smooth u
 - If the words from the CSV file were loaded. The program validates the vocabulary file and checks its readability.
 	```python 
 		def load_flashcards():
-	    	"""This function loads the flashcards data from the csv file."""
+	    	"""This function loads the flashcards data from the CSV file."""
 	    	try:
 	        	with open("flashcard_words.csv", encoding="utf-8", mode="r") as f:
 	            	reader = csv.DictReader(f)
@@ -106,7 +106,7 @@ The program reads and writes data using files:
         ```
     - The program reads this file at the beginning to display words in a random order.
 
-- **Output file:** `user_progress.txt` It writes the words that the user entered correct in a additional txt file. It contains a summary of the progressed words. 
+- **Output file:** `user_progress.txt` It writes the words that the user entered correctly in an additional txt file. It contains a summary of the progressed words. 
     - Example:
 		```
   		Practice session started at Thu 04 Dec 2025, 07:17PM (German -> English)
@@ -151,14 +151,14 @@ Flashcard-quiz-system/
 
  ### Libraries Used
 
- - 'random': Module is used to select random words from the csv file, and shuffling order flashcards presented to the user. 
+ - 'random': Module is used to select random words from the csv file, and shuffle the order of flashcards presented to the user. 
  - 'csv': Allows to read data, word pairs (english-german) in ´flashcard_words.csv´ file.
  - 'from datetime import datetime': Allows the program to display the current date and time—perfect for tracking when each practice session begins.
 
-In this program were used only Python standard libraries, with no external installations required. These libraries were chosen because of their simplicity, effectiveness and reliability, while managing files and data processing in a console application. 
+In this program, only Python standard libraries were used, with no external installations required. These libraries were chosen because of their simplicity, effectiveness, and reliability, while managing files and data processing in a console application. 
 
  ## Team and Contributions
- All team members collaborated on planning, testing, debugging and final presentation to ensure a consistent result.
+ All team members collaborated on planning, testing, debugging, and the final presentation to ensure a consistent result.
  
  Group 2: Evgenia Boesiger, Noor Vinnai, Pascal Walther.
 
