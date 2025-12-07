@@ -22,7 +22,7 @@ def save_word(question, user_answer):
 
 
 def clear_file_or_keeping():
-    """This function asks if the user wants to clear the progress file. When the user want's it, he clears the progress file."""
+    """This function prompts the user to decide whether to clear all contents of the progress file."""
     user_choice = '-'
     while user_choice not in ("", "clear"):
         user_choice = input(
@@ -44,7 +44,7 @@ def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_ent
         f'The correct answer was "{entry[opposite]}".\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
     with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
         writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
-    clear_file_or_keeping() # Asks the user whether he want's to keep the progress in the progress file or not
+    clear_file_or_keeping() # Ask the user whether they want to keep the progress in the progress file or not
 
 
 def finish_quiz(correct_answer_count, overall_tries, number_of_entry):
@@ -55,11 +55,11 @@ def finish_quiz(correct_answer_count, overall_tries, number_of_entry):
         f'No more flashcards left. Great job!\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
     with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
         writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
-    clear_file_or_keeping() # Asks the user whether he want's to keep the progress in the progress file or not
+    clear_file_or_keeping() # Ask the user whether they want to keep the progress in the progress file or not
 
 
 def skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards):
-    """This function skips a word from the flashcards and puts it back."""
+    """This function skips a word from the flashcards and puts it back to the pool of words."""
     overall_tries -= 1 # Undo the try we already counted for this word
     print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
     flashcards.append(entry) # Put the word back into the pool of flashcards
@@ -96,11 +96,11 @@ def main():
         user_answer = input(
             f'Translate: "{entry[language]}" or type "n" for the next question, or type "x" to end the quiz\n')
         overall_tries += 1
-        if user_answer.lower() == "n": # The user want's to skip the word
+        if user_answer.lower() == "n": # The user wants to skip the word
             overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards)
-        elif user_answer.lower() == "x": # The user want's to end the quiz
+        elif user_answer.lower() == "x": # The user wants to end the quiz
             end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry)
-        elif user_answer == entry[opposite]: # The user answer was right
+        elif user_answer == entry[opposite]: # The user answer was correct
             print("Correct")
             correct_answer_count += 1
             save_word(entry[language], user_answer)
@@ -116,12 +116,12 @@ def main():
                     print('Invalid Input, only words are accepted')
                     user_answer = input(
                         'Please try again, or type "n" for the next question, or "x" to end the quiz.\n')
-                if user_answer.lower() == "n": # The user want's to skip the word
+                if user_answer.lower() == "n": # The user wants to skip the word
                     overall_tries = skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards)
                     break
-                elif user_answer.lower() == "x": # The user want's to end the quiz
+                elif user_answer.lower() == "x": # The user wants to end the quiz
                     end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry)
-                elif user_answer == entry[opposite]: # The user answer was right
+                elif user_answer == entry[opposite]: # The user answer was correct
                     number_of_tries_per_word += 1
                     print("It's correct, you tried", number_of_tries_per_word, "times to answer correctly")
                     save_word(entry[language], user_answer)
