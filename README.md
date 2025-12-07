@@ -55,10 +55,10 @@ The application interacts with the user via the console. Users can:
 The application validates all user input to ensure data integrity and a smooth user experience. The program validates the following points:
 - If a valid language was chosen at the beginning
 	```python
-    print("Welcome to your flashcard practice session! You’ll practice vocabulary and your progress will be tracked.")
-    language = input("Which language do you want to translate from - German or English?\n").strip().lower()
-    while language not in ("english", "german"):
-        language = input("The only supported options are: German or English?\n").strip().lower()
+	    print("Welcome to your flashcard practice session! You’ll practice vocabulary and your progress will be tracked.")
+	    language = input("Which language do you want to translate from - German or English?\n").strip().lower()
+	    while language not in ("english", "german"):
+	        language = input("The only supported options are: German or English?\n").strip().lower()
 	```
 	This ensures only valid language is chosen. 
 
