@@ -72,14 +72,17 @@ def main():
         print('Exiting')
         return
     # Choose the language
-    language = ""
-    the_typ = "type"
+    the_type = "type"
+    print("Welcome to your flashcard practice session! You’ll practice vocabulary and your progress will be tracked.")
+    language = input("Which language do you want to translate from - German or English?\n").strip().lower()
     while language not in ("english", "german"):
-        language = input("Choose the source language: German or English:\n").strip().lower()
+        language = input("The only supported options are: German or English?\n").strip().lower()
+
     correct_answer_count = 0
     overall_tries = 0
     number_of_entry = 0
     opposite = "english" if language == "german" else "german"
+    print(f"Awesome! Let's begin... translate the words from {language.title()} into {opposite.title()}.")
     with open("user_progress.txt", encoding="utf-8", mode="a") as writer: # Write the start time and date into the progress file
         writer.write(
             f'Practice session started at {datetime.now().strftime('%a %d %b %Y, %I:%M%p')} ({language.capitalize()} -> {opposite.capitalize()})\n')
@@ -88,7 +91,7 @@ def main():
         entry = random.choice(flashcards)
         flashcards.remove(entry) # To prevent repeating words
         number_of_entry += 1
-        print(f'\n{entry[language]}, "{entry[the_typ]}"') # Display the word and its type
+        print(f'\n{entry[language]}, "{entry[the_type]}"') # Display the word and its type
         number_of_tries_per_word = 0
         user_answer = input(
             f'Translate: "{entry[language]}" or type "n" for the next question, or type "x" to end the quiz\n')
