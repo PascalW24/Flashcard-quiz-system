@@ -75,7 +75,7 @@ def main():
     language = ""
     the_typ = "type"
     while language not in ("english", "german"):
-        language = input("Choose the quiz language: German or English:\n").strip().lower()
+        language = input("Choose the source language: German or English:\n").strip().lower()
     correct_answer_count = 0
     overall_tries = 0
     number_of_entry = 0
