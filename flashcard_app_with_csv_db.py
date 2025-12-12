@@ -35,7 +35,7 @@ def clear_file_or_keeping():
 
 def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry):
     """This function ends the quiz when the user wants to quit."""
-    if overall_tries>1 and number_of_entry>1 : # Avoiding division by zero
+    if overall_tries > 1 and number_of_entry > 1 : # Avoiding division by zero
         overall_tries -= 1
         number_of_entry -= 1
     percentage = round(correct_answer_count / number_of_entry * 100)
