@@ -53,7 +53,7 @@ def finish_quiz(correct_answer_count, overall_tries, number_of_entry):
     accuracy = round(correct_answer_count / overall_tries * 100)
     print(
         f'No more flashcards left. Great job!\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
-    with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
+    with open("user_progress.txt", encoding = "utf-8", mode = "a") as writer:
         writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
     clear_file_or_keeping() # Ask the user whether they want to keep the progress in the progress file or not
 
