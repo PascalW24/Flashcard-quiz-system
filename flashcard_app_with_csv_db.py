@@ -58,7 +58,7 @@ def finish_quiz(correct_answer_count, overall_tries, number_of_entry):
     clear_file_or_keeping() # Ask the user whether they want to keep the progress in the progress file or not
 
 
-def skip_word(entry, opposite, overall_tries, number_of_tries_per_word,flashcards):
+def skip_word(entry, opposite, overall_tries, number_of_tries_per_word, flashcards):
     """This function skips a word from the flashcards and puts it back to the pool of words."""
     overall_tries -= 1 # Undo the try we already counted for this word
     print(f'The correct answer was "{entry[opposite]}". You tried "{number_of_tries_per_word}" times ')
