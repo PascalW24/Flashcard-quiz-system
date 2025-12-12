@@ -17,7 +17,7 @@ def load_flashcards():
 
 def save_word(question, user_answer):
     """This function saves the user progress in a txt file."""
-    with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
+    with open("user_progress.txt", encoding = "utf-8", mode = "a") as writer:
         writer.write(f'- {question} -> {user_answer}\n')
 
 
@@ -28,21 +28,21 @@ def clear_file_or_keeping():
         user_choice = input(
             'Thanks for exploring these flashcards — keep discovering.\nPress Enter to keep your progress or type "clear" to delete all saved progress\n').strip().lower()
         if user_choice == "clear":
-            with open("user_progress.txt", encoding="utf-8", mode="w") as writer:
+            with open("user_progress.txt", encoding = "utf-8", mode = "w") as writer:
                 writer.write("")
         exit(0)
 
 
 def end_quiz(entry, opposite, correct_answer_count, overall_tries, number_of_entry):
     """This function ends the quiz when the user wants to quit."""
-    if overall_tries>1 and number_of_entry>1 : # Avoiding division by zero
+    if overall_tries > 1 and number_of_entry > 1 : # Avoiding division by zero
         overall_tries -= 1
-        number_of_entry-=1
+        number_of_entry -= 1
     percentage = round(correct_answer_count / number_of_entry * 100)
     accuracy = round(correct_answer_count / overall_tries * 100)
     print(
         f'The correct answer was "{entry[opposite]}".\nYour score is {correct_answer_count} out of {number_of_entry} questions: ({percentage}%), and your accuracy {accuracy}%')
-    with open("user_progress.txt", encoding="utf-8", mode="a") as writer:
+    with open("user_progress.txt", encoding = "utf-8", mode = "a") as writer:
         writer.write(f'Your performance: {percentage}% correct answers with an accuracy rate of {accuracy}%.\n\n')
     clear_file_or_keeping() # Ask the user whether they want to keep the progress in the progress file or not
 
@@ -83,7 +83,7 @@ def main():
     number_of_entry = 0
     opposite = "english" if language == "german" else "german"
     print(f"Awesome! Let's begin... translate the words from {language.title()} into {opposite.title()}.")
-    with open("user_progress.txt", encoding="utf-8", mode="a") as writer: # Write the start time and date into the progress file
+    with open("user_progress.txt", encoding = "utf-8", mode = "a") as writer: # Write the start time and date into the progress file
         writer.write(
             f'Practice session started at {datetime.now().strftime('%a %d %b %Y, %I:%M%p')} ({language.capitalize()} -> {opposite.capitalize()})\n')
 
