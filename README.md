@@ -33,7 +33,7 @@ The program loads vocabulary flashcards from a CSV file and quizzes the user by 
 - Track progress (user_progress.txt)
 
 
----
+--- 
 
 ## Project Requirements
 1. Interactive app (console input)
