@@ -34,7 +34,7 @@ The program loads vocabulary flashcards from a CSV file and quizzes the user by 
 
 
 --- 
-
+ 
 ## Project Requirements
 1. Interactive app (console input)
 2. Data validation (input checking)
